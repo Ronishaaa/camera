@@ -10,17 +10,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import appConstant.ViewPages;
-import service.ProductDao;
+import service.CustomerDao;
 
 @WebServlet(asyncSupported = true, urlPatterns = { "/Login" })
 public class CustomerLogin extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private ProductDao dao;
+    private CustomerDao dao;
 
     @Override
     public void init() throws ServletException {
         super.init();
-        dao = new ProductDao();
+        dao = new CustomerDao();
     }
 
     public CustomerLogin() {

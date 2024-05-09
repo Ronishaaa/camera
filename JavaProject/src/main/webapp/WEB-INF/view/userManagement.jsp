@@ -33,12 +33,7 @@
             <span class="links_name">Dashboard</span>
           </a>
         </li>
-        <li>
-          <a href="#" class="sidebar-link" data-target="user">
-            <i class='bx bx-box' ></i>
-            <span class="links_name">User Management</span>
-          </a>
-        </li>
+       
         <li>
           <a href="#" class="sidebar-link" data-target="product">
             <i class='bx bx-box' ></i>
@@ -51,12 +46,7 @@
             <span class="links_name">Order list</span>
           </a>
         </li>
-        <li>
-          <a href="#" class="sidebar-link" data-target="setting">
-            <i class='bx bx-cog' ></i>
-            <span class="links_name">Setting</span>
-          </a>
-        </li>
+       
         <li class="log_out">
           <a href="#">
             <i class='bx bx-log-out'></i>
