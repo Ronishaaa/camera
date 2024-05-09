@@ -62,10 +62,10 @@ public class CustomerDao {
 			statement.setString(1, customer.getFirst_name());
 			statement.setString(2, customer.getLast_name());
 			statement.setString(3, customer.getUsername());
-			statement.setString(5, customer.getAddress());
-			statement.setString(6, customer.getEmail());
-			statement.setLong(7, customer.getPhone_number());
-			statement.setString(8, customer.getPassword());
+			statement.setString(4, customer.getAddress());
+			statement.setString(5, customer.getEmail());
+			statement.setString(6, customer.getPhone_number());
+			statement.setString(7, customer.getPassword());
 			row = statement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -81,13 +81,13 @@ public class CustomerDao {
 			resultSet = statement.executeQuery();
 
 			while (resultSet.next()) {
-				if (customer.getUsername().equals(resultSet.getString("user_name"))) {
+				if (customer.getUsername().equals(resultSet.getString("username"))) {
 					isFind = true;
 					break;
 				} else if (customer.getEmail().equals(resultSet.getString("email"))) {
 					isFind = true;
 					break;
-				} else if (customer.getPhone_number() == resultSet.getLong("phone_number")) {
+				} else if (customer.getPhone_number() == resultSet.getString("phone_number")) {
 					isFind = true;
 					break;
 				}
@@ -124,20 +124,20 @@ public class CustomerDao {
 		while(resultSet.next())
 		{
 			int customer_id=resultSet.getInt("customer_id");
-			String firstName=resultSet.getString("first_name");
-			String lastName=resultSet.getString("last_name");
+			String first_name=resultSet.getString("first_name");
+			String last_name=resultSet.getString("last_name");
 			String username=resultSet.getString("username");
 			String address=resultSet.getString("address");
 			String email=resultSet.getString("email");
-			long phoneNumber=resultSet.getLong("phoneNumber");
+			String phone_number=resultSet.getString("phone_number");
 			
 			Customer customer=new Customer();
-			customer.setFirst_name(firstName);
-			customer.setLast_name(lastName);
+			customer.setFirst_name(first_name);
+			customer.setLast_name(last_name);
 			customer.setUsername(username);
 			customer.setAddress(address);
 			customer.setEmail(email);
-			customer.setPhone_number(phoneNumber);
+			customer.setPhone_number(phone_number);
 			customer.setCustomer_id(customer_id);
 			
 			listOfCustomer.add(customer);
@@ -146,7 +146,7 @@ public class CustomerDao {
 	}
 	
 	public Customer getCustomerById(int id) throws SQLException {
-		statement=conn.prepareStatement("select first_name,last_name,username,address,email,phoneNumber from customer_register where id=?");
+		statement=conn.prepareStatement("select first_name,last_name,username,address,email,phone_number from customer_register where id=?");
 		statement.setInt(1, id);
 		resultSet =statement.executeQuery();
 		Customer customer=new Customer();
@@ -159,7 +159,7 @@ public class CustomerDao {
 			customer.setUsername(resultSet.getString("username"));
 			customer.setAddress(resultSet.getString("address"));
 			customer.setEmail(resultSet.getString("email"));
-			customer.setPhone_number(resultSet.getLong("phoneNumber"));
+			customer.setPhone_number(resultSet.getString("phone_number"));
 			
 		}
 		return customer;
@@ -190,7 +190,7 @@ public class CustomerDao {
 		     statement.setString(3, customer.getUsername());
 		     statement.setString(5, customer.getAddress());
 		     statement.setString(6, customer.getEmail());
-		     statement.setLong(7, customer.getPhone_number());
+		     statement.setString(7, customer.getPhone_number());
 		     statement.setInt(8, customer.getCustomer_id());
 		     
 		      row=statement.executeUpdate();
@@ -235,9 +235,9 @@ public class CustomerDao {
 		return false;
 	}
 	
-	private boolean isPhoneNumberTakenByOther(long phoneNumber, int customer_id) throws SQLException {
-		statement=conn.prepareStatement("select count(*) as count_id from customer_register where phoneNumber=? and customer_id!=?");
-		statement.setLong(1, phoneNumber);
+	private boolean isPhoneNumberTakenByOther(String phone_number, int customer_id) throws SQLException {
+		statement=conn.prepareStatement("select count(*) as count_id from customer_register where phone_number=? and customer_id!=?");
+		statement.setString(1, phone_number);
 		statement.setInt(2, customer_id);
 		resultSet=statement.executeQuery();
 		if(resultSet.next())

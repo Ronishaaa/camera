@@ -49,27 +49,27 @@ public class CustomerRegister extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String firstName = request.getParameter("firstName");
-		String lastName = request.getParameter("lastName");
+		String first_name = request.getParameter("first_name");
+		String last_name = request.getParameter("last_name");
 		String username = request.getParameter("username");
 		
-		String gender = request.getParameter("gender");
+		String address = request.getParameter("address");
 		String email = request.getParameter("email");
-		long phoneNumber = Long.parseLong(request.getParameter("phoneNumber"));
+		String phone_number = request.getParameter("phone_number");
 		String password = request.getParameter("password");
 		String reTypePassword = request.getParameter("retypePassword");
 		if (!password.equals(reTypePassword)) {
-			request.setAttribute("firstName", firstName);
+			request.setAttribute("first_name", first_name);
 			request.setAttribute("error", "not matched");
 			request.getRequestDispatcher(ViewPages.REGISTER_PAGE).forward(request, response);
 		}
 		Customer customer = new Customer();
-		customer.setFirst_name(firstName);
-		customer.setLast_name(lastName);
+		customer.setFirst_name(first_name);
+		customer.setLast_name(last_name);
 		customer.setUsername(username);
-		customer.setAddress(gender);
+		customer.setAddress(address);
 		customer.setEmail(email);
-		customer.setPhone_number(phoneNumber);
+		customer.setPhone_number(phone_number);
 		customer.setPassword(PasswordHash.getPasswordHash(password));
 		if (dao.saveCustomer(customer)) {
 			

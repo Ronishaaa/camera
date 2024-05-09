@@ -12,7 +12,7 @@ public class Customer implements Serializable {
 	private String username;
 	private String address;
 	private String email;
-	private long phone_number;
+	private String phone_number;
 	private String password;
 	
 	public int getCustomer_id() {
@@ -63,11 +63,11 @@ public class Customer implements Serializable {
 		this.email = email;
 	}
 	
-	public long getPhone_number() {
+	public String getPhone_number() {
 		return phone_number;
 	}
 	
-	public void setPhone_number(long phone_number) {
+	public void setPhone_number(String phone_number) {
 		this.phone_number = phone_number;
 	}
 	

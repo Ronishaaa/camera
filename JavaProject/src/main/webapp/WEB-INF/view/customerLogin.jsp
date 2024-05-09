@@ -12,7 +12,7 @@
 		<h1>Welcome To Camera</h1>
 		<div style="color:grey; margin-bottom:20px;">Sign in your account</div>
 
-		<form action="#">
+		<form action="<%=request.getContextPath() %>/Login" method="post">
 			<div class="row">
 				<div class="col">
 					<label for="username">Username</label> 

@@ -64,41 +64,7 @@
         <p>This is the Dashboard content.</p>
      </div>
      
-    <div class="home-content" id="userContent">
-    <h1>User Overview</h1>
-    <div class="control">
-    <input placeholder="search for product">
-       
-            
-           <div class="add-button" >
-    <a href="<%=request.getContextPath() %>/AddNewProduct">+ ADD PRODUCT</a>
-           </div>
-        
-    </div>
-
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Product Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Stock</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach var="product" items="${listOfProduct}">
-                <tr>
-                    <td><c:out value="${product.product_name}"/></td>
-                    <td><c:out value="${product.product_description}"/></td>
-                    <td><c:out value="${product.unit_price}"/></td>
-                    <td><c:out value="${product.stock}"/></td>
-                    
-                    
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table>
-</div>
+   
      
      
     <div class="home-content" id="productContent">
@@ -116,6 +82,7 @@
     <table border="1">
         <thead>
             <tr>
+            <th>Image</th>
                 <th>Product Name</th>
                 <th>Description</th>
                 <th>Price</th>
@@ -127,7 +94,7 @@
         <tbody>
             <c:forEach var="product" items="${listOfProduct}">
                 <tr>
-                    <td><c:out value="${product.product_name}"/></td>
+<td><img src="${pageContext.request.contextPath}/images?productId=${product.product_id}" /></td>                    <td><c:out value="${product.product_name}"/></td>
                     <td><c:out value="${product.product_description}"/></td>
                     <td><c:out value="${product.unit_price}"/></td>
                     <td><c:out value="${product.stock}"/></td>
@@ -158,7 +125,6 @@
   document.addEventListener("DOMContentLoaded", function() {
     // Get references to sidebar elements
     let sidebarLinks = document.querySelectorAll(".sidebar-link");
-    let userContent = document.getElementById("userContent");
     let productContent = document.getElementById("productContent");
     let orderListContent = document.getElementById("orderListContent");
     let dashboardContent = document.getElementById("dashboardContent");
@@ -169,7 +135,6 @@
     productContent.style.display = "block";
     orderListContent.style.display = "none";
     dashboardContent.style.display = "none"; // Display dashboard content initially
-    userContent.style.display = "none";
     
     // Add click event listener to each sidebar link
     sidebarLinks.forEach(link => {
@@ -183,7 +148,6 @@
         productContent.style.display = "none";
         orderListContent.style.display = "none";
         dashboardContent.style.display = "none";
-       userContent.style.display = "none";
         
         // Show the corresponding content based on the clicked link
         if (target === "product") {
@@ -192,8 +156,6 @@
           orderListContent.style.display = "block";
         } else if (target === "dashboard") {
           dashboardContent.style.display = "block";
-        }else if (target === "user") {
-          userContent.style.display = "block";
         }
 
         // Close sidebar after clicking a link (for mobile)

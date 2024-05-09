@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.cj.jdbc.Blob;
+
 import model.Product;
 import utils.DatabaseConnectivity;
 
@@ -95,12 +97,7 @@ public class ProductDao {
 	public int updateProduct(Product product) throws SQLException {
 		int row=0;
 		
-		if(isProductnameTakenByOther(product.getProduct_name(),product.getProduct_id()))
-		{
-			return row;
-		}
-		else
-		{
+		
 			statement=conn.prepareStatement("update product set product_name=?,product_description=?,unit_price=?,stock=? where product_id=?");
 		     statement.setString(1, product.getProduct_name());
 		     statement.setString(2, product.getProduct_description());
@@ -109,7 +106,7 @@ public class ProductDao {
 		     statement.setInt(5, product.getProduct_id());
 		     
 		      row=statement.executeUpdate();
-		}
+		
 	     
 		
 	     return row;
@@ -126,24 +123,36 @@ public class ProductDao {
 	    }
 	    return row;
 	}
-
-
-	private boolean isProductnameTakenByOther(String product_name, int product_id) throws SQLException {
-		// TODO Auto-generated method stub
-		statement=conn.prepareStatement("select count(*) as count_id from product where product_name=? and product_id!=?");
-		statement.setString(1, product_name);
-		statement.setInt(2, product_id);
-		resultSet=statement.executeQuery();
-		if(resultSet.next())
-		{
-			int row_number=resultSet.getInt("count_id");
-			if(row_number>0)
-			{
-				return true;
-			}
-			
-		}
-		return false;
+	
+	public byte[] getProductImageById(int productId) throws SQLException {
+	    byte[] imageData = null;
+	    try {
+	        statement = conn.prepareStatement("SELECT image FROM product WHERE product_id = ?");
+	        statement.setInt(1, productId);
+	        resultSet = statement.executeQuery();
+	        if (resultSet.next()) {
+	            Blob blob = (Blob) resultSet.getBlob("image");
+	            if (blob != null) {
+	                // Convert blob data to byte array
+	                imageData = blob.getBytes(1, (int) blob.length());
+	            }
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        // Close resources
+	        if (resultSet != null) {
+	            resultSet.close();
+	        }
+	        if (statement != null) {
+	            statement.close();
+	        }
+	    }
+	    return imageData;
 	}
+
+
+
+	
 	
 }
