@@ -1,0 +1,141 @@
+@charset "ISO-8859-1";
+
+body{
+    background-color: rgb(164, 160, 160);
+    background-image: url('2.jpg');
+     background-repeat: no-repeat;
+     background-size: cover;
+
+}
+.about-1{
+    margin: 30px;
+    padding: 20px;
+}
+.about-1 h1{
+        font-size: 50px;
+    text-align: center;
+    color: rgb(250, 245, 245);
+    font-weight: bold;
+}
+.about-1 p{
+    text-align: center;
+    padding: 3px;
+    color: #fff;
+}
+
+
+.container {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+}
+
+.image{
+    width: 90px;
+    height: 90px;
+}
+.about-item{
+    background-color: rgb(207, 203, 203);
+    box-shadow: 0 0 9px rgba(0,o,0.6);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    height: 190px;
+    padding: 10px;
+    
+   
+}
+.about-item i{
+    font-size: 30px;
+    margin: 0;  
+}
+.about-item h2{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.about-item hr{
+    width: 30px;
+    height: 5px;
+    background-color: #a18096;
+    margin: 0, auto;
+    border: none;     
+}
+.about-item p{
+    font-size: 11px;
+    margin-top: 10px;
+}
+.about-item:hover{
+    background-color: #f7fafc;
+}
+.about-item:hover i,
+.about-item:hover h2,
+.about-item:hover p{
+    color: #141111;
+}
+.about-item:hover hr{
+    background-color: #fff;
+}
+.about-item:hover i{
+    transform: translateY(-20px);
+}
+.about-item:hover i,
+.about-item:hover h2,
+.about-item:hover hr{
+    transition: all 4ooms ease-in-out;
+}
+
+
+.w3-content {
+    width: 100%; /* Adjust the container width to fit the screen */
+    height: 100vh; /* Set container height to fill the viewport */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Arrange children vertically */
+    align-items: center; /* Center children horizontally */
+    background-image: url('1.jpg'); /* Add your background image path */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
+    color: #ffffff; /* Set text color to white */
+  }
+  
+  /* Heading styles */
+  .w3-center {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Contact section styles */
+  .w3-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the columns horizontally */
+  }
+  
+  .w3-col {
+    flex: 0 0 100%; /* Take full width */
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+  /* Icon styles */
+  .fa {
+    margin-right: 10px;
+  }
+  
+  /* Large text styles */
+  .w3-large {
+    font-size: 30px;
+  }
+  
+  /* Margin bottom for large text */
+  .w3-margin-bottom {
+    margin-bottom: 20px;
+  }
+  
+  /* Responsive styles */
+ 

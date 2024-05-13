@@ -54,7 +54,7 @@ public class CustomerLogin extends HttpServlet {
 						HttpSession session = request.getSession();
 						session.setAttribute("username", username);
 						session.setMaxInactiveInterval(5 * 60);
-						response.sendRedirect(request.getContextPath()+"/AddNewProduct");
+						response.sendRedirect(request.getContextPath()+"/Home");
 					} else {
 						request.setAttribute("error", "invalid username or password");
 						doGet(request, response);

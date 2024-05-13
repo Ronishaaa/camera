@@ -12,7 +12,8 @@
 <body>
 
 <div class="container">
-	<h1>Add New Product</h1>
+<div class="form">
+	<h1>Edit Product</h1>
 	<c:set var="product" value="${product}"></c:set>
 	<form action="${pageContext.request.contextPath}/ProductUpdate" method="post">
 	   
@@ -21,6 +22,10 @@
 	    <input type="text" id="productName" name="productName" value="${product.product_name}" required>
 	   </div>
 	
+	<div class="input-field">
+    <label for="productImage">Product Image:</label>
+    <input type="file" id="productImage" accept="image/*" name="productImage" value="${product.product_image}" required>
+   </div>
 	
 	<div class="input-field">
 	    <label for="productDescription">Product Description:</label>
@@ -41,6 +46,7 @@
 	
 	    <button type="submit" >Submit</button>
 	</form>
+	</div>
 </div>
 </body>
 </html>

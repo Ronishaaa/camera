@@ -18,8 +18,7 @@
       </div>
       
       <div class="profile-details">
-        <img src="images/profile.jpg" alt="">
-        <span class="admin_name">Ronisha </span>
+        <span class="admin_name">Admin </span>
         <i class='bx bx-chevron-down' ></i>
       </div>
     </nav>
@@ -31,6 +30,7 @@
           <a href="#" class="sidebar-link" data-target="dashboard">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Dashboard</span>
+            
           </a>
         </li>
        
@@ -47,23 +47,141 @@
           </a>
         </li>
        
-        <li class="log_out">
-          <a href="#">
-            <i class='bx bx-log-out'></i>
-            <span class="links_name">Log out</span>
-          </a>
-        </li>
+      
       </ul>
+            <form action="<%=request.getContextPath()%>/Logout" method="post">
+					<button type="submit"   class="logout">Logout</button>
+			</form>
   </div>
   
   <section class="home-section">
     
     
     <div class="home-content" id="dashboardContent">
-        <h2>dashboard Section</h2>
-        <p>This is the Dashboard content.</p>
+        
+        <div class="grid">
+	        <div class="container">
+	        	<div>
+			        <div>
+			        Total sales
+			        
+			        </div>
+			        <div>
+			        
+			        12345
+			        </div>
+	        	</div>
+	        	<div class="image-container">
+	       	 	<img alt="money" src="images/money.png">
+	       	 	</div>
+	        </div>
+	        
+	         <div class="container">
+	        	<div>
+			        <div>
+			        Account reach
+			        
+			        </div>
+			        <div>
+			        
+			        12345
+			        </div>
+	        	</div>
+	        	<div class="image-container">
+	       	 	<img alt="money" src="images/reach.png">
+	        </div>
+	        </div>
+	        
+	        
+	        <div class="container">
+	        	<div>
+			        <div>
+			        New Customer
+			        
+			        </div>
+			        <div>
+			        
+			        12345
+			        </div>
+	        	</div>
+	        	<div class="image-container">
+	       	 	<img alt="money" src="images/order.png">
+	       	 	</div>
+	        </div>
+	        
+	        <div class="container">
+	        	<div>
+			        <div>
+			        Customer
+			        
+			        </div>
+			        <div>
+			        
+			        12345
+			        </div>
+	        	</div>
+	        	<div class="image-container">
+	       	 	<img alt="money" src="images/customer.png">
+	       	 	</div>
+	        </div>
+	        
+	        
+	        
+	       
+    	</div>
+    	<div class="grid-second">
+    	
+    	<div class="grid-third">
+    	<div class="container">
+    	<div class="column">
+	    	<div>Profit</div>
+	    	
+	    	<div>$23456</div>
+    	</div>
+	    	
+	    	<img class="data-image" alt="money" src="images/profit.png">
+    	</div>
+    	
+    	<div class="container">
+    	<div class="column">
+    	
+	    	<div>New Visitor</div>
+	    	
+	    	<div>23 %</div>
+    	</div>
+	    	
+	    	<img class="data-image" alt="money" src="images/new-visitor.png">
+    	</div>
+    	                     
+    	<div class="main-big">
+    	<div class="container">
+    	<div class="column">
+	    	<div>Activity</div>
+	    	<div>77%</div>
+    	
+    	</div>
+	    	
+	    	<div>
+	    	<img class="data-image" alt="money" src="images/activity.png">
+	    	</div>
+    	</div>
+    	</div>
+    	
+    	<div class="container">
+    	<div class="column">
+    	
+	    	<div>Total income</div>
+	    	
+	    	<div>Yearly report overview</div>
+    	</div>
+	    	<div>
+	    	<img class="data-image" alt="money" src="images/total-income.png" height="220px">
+	    	</div>
+    	</div>
+    	</div>
+    	</div>
+	         
      </div>
-     
    
      
      
@@ -94,7 +212,8 @@
         <tbody>
             <c:forEach var="product" items="${listOfProduct}">
                 <tr>
-<td><img src="${pageContext.request.contextPath}/images?productId=${product.product_id}" /></td>                    <td><c:out value="${product.product_name}"/></td>
+<td><img class="product-image" src="${pageContext.request.contextPath}/images?productId=${product.product_id}" /></td>                   
+					<td><c:out value="${product.product_name}"/></td>
                     <td><c:out value="${product.product_description}"/></td>
                     <td><c:out value="${product.unit_price}"/></td>
                     <td><c:out value="${product.stock}"/></td>
@@ -102,12 +221,12 @@
                     <td><form action="<%=request.getContextPath()%>/ProductEdit" method="post">
     
 				    <input type="hidden" name="product_id" value="${product.product_id }">
-				    <button type="submit">Edit</button>
+				    <button type="submit" class="action-button"><img alt="edit" src="images/edit.png"width="24px"></button>
 				</form>
 				</td>
 				    <td><form action="<%=request.getContextPath()%>/ProductDelete" method="post">
 				    <input type="hidden" name="product_id" value="${product.product_id}">
-				    <button type="submit">Delete</button>
+				    <button type="submit" class="action-button"><img alt="delete" src="images/delete.png" width="24px"></button>
 				</form></td>
                 </tr>
             </c:forEach>

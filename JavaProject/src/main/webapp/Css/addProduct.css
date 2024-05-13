@@ -1,13 +1,28 @@
 @charset "ISO-8859-1";
 
-.container{
-	
-	    display: flex;
-    flex-direction: column;
-    align-items: center;
-	
+body{
+	margin: 0px;
 }
 
+.container{
+	height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: darksalmon;
+    justify-content: center;
+	
+}
+.form{
+	    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    background-color: aliceblue;
+    padding: 50px;
+    border-radius: 10px;
+}
 form{
 	width: 350px;
 	    display: flex;
@@ -31,5 +46,7 @@ textarea {
 
 button{
 	    background: darksalmon;
-    padding: 6px
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
 }

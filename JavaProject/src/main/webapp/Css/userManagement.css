@@ -118,6 +118,39 @@ nav .profile-details img{
   width: 100%;
 }
 
+.grid{
+	display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.container {
+	background-color: antiquewhite;
+    padding: 25px;
+    border-radius: 10px;
+        display: flex;
+    justify-content: space-between;
+}
+
+.big-container {
+	background-color: antiquewhite;
+    padding: 25px;
+    border-radius: 10px;
+    
+    width: fit-content;
+}
+
+
+.image-container{
+	display: flex;
+    background-color: white;
+    padding: 10px;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
 .home-section{
 	border: 2px solid #000;
     position: fixed;
@@ -182,7 +215,52 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-img{
+.product-image{
 	width: 50px;
 }
 
+.logout {
+	    position: absolute;
+    bottom: 20px;
+    width: 90%;
+    padding: 10px;
+    left: 10px;
+    background-color: darksalmon;
+    border: none;
+    border-radius: 10px;
+}
+
+.action-button{
+	
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.data-image{
+	width: 100%;
+}
+
+
+.main-big{
+	display:grid;
+	 grid-template-columns: auto auto ;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.grid-second{
+	display:grid;
+	 grid-template-columns: auto auto ;
+	gap: 20px;
+}
+
+.grid-third{
+	display:grid;
+	 grid-template-columns: auto auto ;
+	gap: 20px;
+}

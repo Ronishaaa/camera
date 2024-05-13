@@ -10,6 +10,8 @@
 <body>
 
 <div class="container">
+<div class="form">
+
 	<h1>Add New Product</h1>
 
 <form action="${pageContext.request.contextPath}/AddNewProduct" method="post" enctype="multipart/form-data">
@@ -43,6 +45,7 @@
 
     <button type="submit" value="Submit">Submit</button>
 </form>
+</div>
 </div>
 </body>
 </html>

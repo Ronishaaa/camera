@@ -16,7 +16,7 @@
 			<div class="row">
 				<div class="col">
 					<label for="username">Username</label> 
-					<input class="input" type="text" id="username" name="username" placeholder="Enter your email" required="required">
+					<input class="input" type="text" id="username" name="username" placeholder="Enter your username" required="required">
 				</div>
 			</div>
 			
@@ -32,7 +32,7 @@
 			Don't have an account ? 
 			<a href="<%=request.getContextPath()%>/Register">Sign up</a>
 			</div>
-			
+			<p style="color:red">${error}</p>
 		</form>
 
 
